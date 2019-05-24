@@ -225,7 +225,6 @@ class RubberBottomSheetState extends State<RubberBottomSheet> with TickerProvide
       }
 
       _controller.value -= details.primaryDelta / screenHeight * friction;
-      print("dragging peak ${_draggingPeak(_lastPosition)}");
       if(_shouldScroll && _controller.value >= _controller.upperBound && !_draggingPeak(_lastPosition)) {
         _controller.value = _controller.upperBound;
         
@@ -309,7 +308,6 @@ class RubberBottomSheetState extends State<RubberBottomSheet> with TickerProvide
             _controller.fling(_controller.lowerBound, _controller.upperBound,
                 velocity: flingVelocity);
           } else {
-            print("${_controller.value} - ${_controller.upperBound} - ${_controller.lowerBound}");
             if (_controller.value > (_controller.upperBound + _controller.lowerBound) / 2) {
               _controller.expand();
             } else {
